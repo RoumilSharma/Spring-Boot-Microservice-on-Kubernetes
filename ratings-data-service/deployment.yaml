@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ratings-data-service
+  labels:
+    run: ratings-data-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: ratings-data-service
+  template:
+    metadata:
+      labels:
+        run: ratings-data-service
+    spec:
+      containers:
+      - name: ratings-data-service-service
+        image: roumilsharma/ratings-data-service:v1
+        ports:
+        - containerPort: 8083

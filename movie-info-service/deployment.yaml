@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movie-info-service
+  labels:
+    run: movie-info-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: movie-info-service
+  template:
+    metadata:
+      labels:
+        run: movie-info-service
+    spec:
+      containers:
+      - name: movie-info-service
+        image: roumilsharma/movie-info-service:v3
+        ports:
+        - containerPort: 8082
